@@ -1,1 +1,5 @@
-# FinalYearProjectCode
+# The overall goal of this project is to create a IOT (Internet of Things) type home intrusion detection system and conduct an in-depth analysis into some of the security issues within IOT and to create methods to resolve these issues.  
+# The objective is to create a secure Internet of things application which portrays a home intrusion detection system showing the obvious security vulnerabilities and creating patches for these vulnerabilities. A Raspberry Pi device and multiple hardware components will be used to accomplish this. 
+# The Raspberry Pi device will record specific information in the house, such as motion using a PIR sensor and pass this information to a MySQL database, which will then display this information on a webpage hosted by an Apache webserver. The user of the home automation system will receive an email once the specific data exceeds a certain a threshold, being informed regarding certain activity. Multiple hardware components such as a PIR Sensor, Pi Camera and an Active Buzzer will allow people to keep a close eye on their house, giving them that extra peace of mind.  
+# This project aims to amend security issues in IOT such as device administrative interfaces, privacy issues, insecure network services, insecure software/firmware and lack of transport encryption. 
+ 
