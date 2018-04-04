@@ -35,7 +35,7 @@ $sec = "5";
 $username = "root";
 $password = "";
 $database = 'intrudersdatabase';
-//Creates a connection to database with above credentials, connects if credentials are valid and gives error message if connection is unsuccessful  
+//Creates a connection to database with above credentials, connects if credentials are valid and gives error message if connection is unsuccessful.
 $con=mysqli_connect("localhost",$username,$password) or die ("Unable to connect");
 mysqli_select_db($con,$database) or die ("Could not select database");
 $query = "SELECT * FROM detectionlogs";
