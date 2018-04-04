@@ -28,11 +28,14 @@ $sec = "5";
 <body>
 <img src= 'securitypic2.png' align="center" height="70%" width="50%">
 <h1><b>Intruder Detection System</b></h1>
+
+
+
 <?php
 $username = "root";
 $password = "";
 $database = 'intrudersdatabase';
-//Create connection
+//Creates a connection to database with above credentials, connects if credentials are valid and gives error message if connection is unsuccessful  
 $con=mysqli_connect("localhost",$username,$password) or die ("Unable to connect");
 mysqli_select_db($con,$database) or die ("Could not select database");
 $query = "SELECT * FROM detectionlogs";
