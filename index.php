@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 
+<!--
+# Autor:   Gavin Fennelly
+# College: Waterford Institute of Technology
+# Course:  Applied Computing 
+-->
+
 <html>
 <?php
 $page = $_SERVER['PHP_SELF'];
