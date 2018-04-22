@@ -1,13 +1,18 @@
-
 <!DOCTYPE html>
+
 <html>
 <?php
 $page = $_SERVER['PHP_SELF'];
-$sec = "5";
+$sec = "";
 ?>
 <head>
 <meta http-equiv="refresh" content=<?php echo $sec;?> URL=<?php echo $page;?>>
 <style>
+
+<!--
+Imports Google fonts API for styling web-page.
+--> 
+
 	@import url('https://fonts.googleapis.com/css?family=Cuprum');
         body
         {
@@ -26,7 +31,7 @@ $sec = "5";
 </style>
 </head>
 <body>
-<img src= 'securitypic2.png' align="center" height="70%" width="50%">
+<img src='securitypic2.png' align="center" height="70%" width="50%">
 <h1><b>Intruder Detection System</b></h1>
 
 
@@ -35,19 +40,26 @@ $sec = "5";
 $username = "root";
 $password = "";
 $database = 'intrudersdatabase';
-//Creates a connection to database with above credentials, connects if credentials are valid and gives error message if connection is unsuccessful.
+
+//Creates a connection to database with above credentials
 $con=mysqli_connect("localhost",$username,$password) or die ("Unable to connect");
 mysqli_select_db($con,$database) or die ("Could not select database");
 $query = "SELECT * FROM detectionlogs";
 $result=mysqli_query($con,$query);
 $num=mysqli_num_rows($result);
 mysqli_close($con);?>
+
+<!-- Creates a table here where all data will be displayed
+-->
 <table  cellspacing="0" border=6 align=center width="65%" style ="background-color: #A9BCF5" >
 <tr style= "background-color:#A4A4A4"> <th><font  size="5" div style="color:#0431B4" face="Arial, Helvetica, sans-serif">Date</font></th>
-<th><font size="5" div style="color: #0431B4" face="Arial, Helvetica, sans-serif">Day</font></th>
-<th><font size="5" div style="color:#0431B4" face="Arial, Helvetica, sans-serif">Time</font></th>
-<th><font size="5" div style="color:#0431B4" face="Arial, Helvetica, sans-serif">Image</font></th>
+<th><font size="5" div style="color: #0431B4" face="Lato">Day</font></th>
+<th><font size="5" div style="color:#0431B4" face="Lato">Time</font></th>
+<th><font size="5" div style="color:#0431B4" face="Lato>Image</font></th>
 </tr>
+
+
+
 <?php
 $i=0;
 function mysqli_result($result, $row, $field=0) { 
@@ -63,9 +75,9 @@ $day = date('l', strtotime($datetime));
 $time = date('H:i:s A', strtotime($datetime));
 $image=mysqli_result($result,$i,"Image");?>
 <tr>
-<td><font size="4" face="Arial, Helvetica, sans-serif"><?php echo $date; ?></font></td>
-<td><font size="4" face="Arial, Helvetica, sans-serif"><?php echo $day; ?></font></td>
-<td><font size="4" face="Arial, Helvetica, sans-serif"><?php echo $time; ?></font></td>
+<td><font size="4" face="Lato"><?php echo $date; ?></font></td>
+<td><font size="4" face="Lato"><?php echo $day; ?></font></td>
+<td><font size="4" face="Lato"><?php echo $time; ?></font></td>
 <td width="20%"><?php echo '<a href="'.$image.'" target="_blank"><img src="'.$image.'" align=center height="20%" width=100%" style="display: block"></a>';?></td></tr>
 <?php $i++;
 }?>
