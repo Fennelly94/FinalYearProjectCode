@@ -61,7 +61,7 @@ while True:
 	#Starts web-cam and takes image, saving it to the specified folder
         cam.start()
         image= cam.get_image()
-        pygame.image.save(image,'Intruder_Image_Logs/%s.png'%str(x))
+        pygame.image.save(image,'Intruder_Image_Logs/%s.png' %str(z))
         cam.stop()
 		
 	#This is where the Intruder_Images folder links up with the MySQL database
@@ -78,6 +78,7 @@ while True:
 		#Once picture is taken, this will tell the buzzer to stop emitting a tone
 		GPIO.output(buz,GPIO.LOW)
 		
+	
 	#This is where the emails get sent. The emails are sent from the configured Raspberry Pi email to the users email.
 	fromaddr = "projectraspberrypii@gmail.com" 
 	toaddr = "gavinfennelly@hotmail.com"
@@ -86,6 +87,7 @@ while True:
 	
 	# From is the sender's email address
 	# To is the recipient's email address
+	# basic message headers
 	msg['From'] = fromaddr
 	msg['To'] = toaddr
     msg['Subject'] = "!!ATTENTION!! Activity Detected At Household!"
@@ -109,7 +111,9 @@ while True:
 	s = smtplib.SMTP('smtp.gmail.com', 587)
 	
 	#TLS will protect users password
+	s.ehlo()
 	s.starttls()
+	s.ehlo()
 	s.login(fromaddr, "test1234!")
 	text = msg.as_string()
 	s.sendmail(fromaddr, toaddr, text)
